@@ -9,6 +9,6 @@ namespace BoardGame_REST_API.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string AuthorDescription { get; set; }
-        public ICollection<AuthorGameDto> AuthorGame { get; set; }
+        public ICollection<GameDto>? Games { get; set; }
     }
 }
