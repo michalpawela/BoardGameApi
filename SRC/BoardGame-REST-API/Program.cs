@@ -14,7 +14,9 @@ builder.Services.AddControllers();
 IServiceCollection serviceCollection = builder.Services.AddDbContext<BoardGameDbContext>();
 builder.Services.AddScoped<GameSeeder>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

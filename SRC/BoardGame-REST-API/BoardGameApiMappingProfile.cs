@@ -10,15 +10,10 @@ namespace BoardGame_REST_API
         {
             // Mapping for Author -> AuthorDto
             CreateMap<Author, AuthorDto>()
-               .ForMember(dest => dest.AuthorGame, opt => opt.MapFrom(src => src.AuthorGames));
+               .ForMember(dest => dest.Games, opt => opt.MapFrom(src => src.AuthorGames));
 
             // Mapping for Game -> GameDto
             CreateMap<GameDto, Game>();
-
-            // Mapping for AuthorGame -> AuthorGameDto
-            CreateMap<AuthorGame, AuthorGameDto>()
-               .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author))
-               .ForMember(dest => dest.Game, opt => opt.MapFrom(src => src.Game));
 
             // Mapping for Game -> GameDto
             CreateMap<Game, GameDto>()

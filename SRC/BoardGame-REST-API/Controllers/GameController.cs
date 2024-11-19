@@ -10,7 +10,7 @@ using BoardGame_REST_API.Services.Interfaces;
 namespace BoardGame_REST_API.Controllers
 {
 
-    [Route("api/game")]
+    [Route("game")]
     public class GameController : Controller
     {
         private readonly IGameService _gameService;

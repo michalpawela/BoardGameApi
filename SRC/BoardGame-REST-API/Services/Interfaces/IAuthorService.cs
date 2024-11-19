@@ -2,7 +2,7 @@
 
 namespace BoardGame_REST_API.Services.Interfaces
 {
-    public class IAuthorService
+    public interface IAuthorService
     {
         Task<bool> UpdateAsync(int id, AuthorDto AuthorDto);
         Task<bool> DeleteAsync(int id);
