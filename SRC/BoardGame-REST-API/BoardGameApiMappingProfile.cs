@@ -8,17 +8,14 @@ namespace BoardGame_REST_API
     {
         public BoardGameApiMappingProfile()
         {
-            // Mapping for Author -> AuthorDto
-            CreateMap<Author, AuthorDto>()
-               .ForMember(dest => dest.Games, opt => opt.MapFrom(src => src.AuthorGames));
+            CreateMap<Author, AuthorDto>();
+            CreateMap<AuthorDto, Author>();
 
-            // Mapping for Game -> GameDto
+            CreateMap<Category, CategoryDto>();
+            CreateMap<CategoryDto, Category>();
+
             CreateMap<GameDto, Game>();
-
-            // Mapping for Game -> GameDto
-            CreateMap<Game, GameDto>()
-                .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.AuthorGames.Select(ag => ag.Author)))
-                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.CategoryGames.Select(cg => cg.Category)));
+            CreateMap<Game, GameDto>();
 
         }
     }
