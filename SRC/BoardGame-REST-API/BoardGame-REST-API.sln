@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGame-REST-API", "Board
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbManagement", "..\DbManagement\DbManagement.csproj", "{0F76BC05-7C24-4995-9C21-1B34022CD21C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{98EC7194-5B25-42E9-B8F9-005C732145EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0F76BC05-7C24-4995-9C21-1B34022CD21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F76BC05-7C24-4995-9C21-1B34022CD21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F76BC05-7C24-4995-9C21-1B34022CD21C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EC7194-5B25-42E9-B8F9-005C732145EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EC7194-5B25-42E9-B8F9-005C732145EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EC7194-5B25-42E9-B8F9-005C732145EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EC7194-5B25-42E9-B8F9-005C732145EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

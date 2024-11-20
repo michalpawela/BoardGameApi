@@ -3,7 +3,7 @@ using BoardGame_REST_API.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BoardAuthor_REST_API.Controllers
+namespace BoardGame_REST_API.Controllers
 {
     [Route("author")]
     [ApiController]

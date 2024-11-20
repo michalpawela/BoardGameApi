@@ -13,6 +13,10 @@ namespace BoardGame_REST_API.DbManagement
         public DbSet<CategoryGame> CategoryGames { get; set; }
         public DbSet<AuthorGame> AuthorGames { get; set; }
 
+        public BoardGameDbContext(DbContextOptions<BoardGameDbContext> options) : base(options)
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AuthorGame>()
@@ -44,7 +48,10 @@ namespace BoardGame_REST_API.DbManagement
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Settings._connectionString); //Will be changed to enviroment varieble
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(Settings._connectionString); //Will be changed to enviroment varieble
+            }
         }
 
     }
