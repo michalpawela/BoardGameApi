@@ -18,35 +18,27 @@ namespace BoardGame_REST_API.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> UpdateAsync(int id, AuthorDto AuthorDto)
+        public async Task<AuthorDto> UpdateAsync(int id, AuthorDto AuthorDto)
         {
             var Author = await _dbContext.Authors.AsNoTracking().FirstOrDefaultAsync(g => g.AuthorId == id);
-            if (Author is null)
-            {
-                return false;
-            }
-            else
-            {
-                var gm = _mapper.Map<Author>(AuthorDto);
+                var a = _mapper.Map<Author>(AuthorDto);
 
-                Author = gm;
+                Author = a;
 
                 _dbContext.Authors.Update(Author);
 
                 await _dbContext.SaveChangesAsync();
-                return true;
-            }
+            return AuthorDto;
 
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<AuthorDto> DeleteAsync(int id)
         {
             var Author = await _dbContext.Authors.FirstOrDefaultAsync(g => g.AuthorId == id);
-            if (Author is null) return false;
 
             _dbContext.Authors.Remove(Author);
             await _dbContext.SaveChangesAsync();
-            return true;
+            return _mapper.Map<AuthorDto>(Author);
         }
 
         public async Task<AuthorDto> GetByIDAsync(int id)
@@ -103,12 +95,12 @@ namespace BoardGame_REST_API.Services
             return AuthorDtos;
         }
 
-        public async Task<bool> CreateAsync(AuthorDto AuthorDto)
+        public async Task<AuthorDto> CreateAsync(AuthorDto AuthorDto)
         {
             var Author = _mapper.Map<Author>(AuthorDto);
             await _dbContext.Authors.AddAsync(Author);
             await _dbContext.SaveChangesAsync();
-            return true;
+            return AuthorDto;
         }
     }
 }

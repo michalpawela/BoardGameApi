@@ -21,35 +21,26 @@ namespace BoardGame_REST_API.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> UpdateAsync(int id, GameDto gameDto)
+        public async Task<GameDto> UpdateAsync(int id, GameDto gameDto)
         {
             var game = await _dbContext.Games.AsNoTracking().FirstOrDefaultAsync(g => g.GameId == id);
-            if (game is null)
-            {
-                return false;
-            }
-            else
-            {
-                var gm = _mapper.Map<Game>(gameDto);
+            var gm = _mapper.Map<Game>(gameDto);
 
-                game = gm;
+            game = gm;
 
-                _dbContext.Games.Update(game);
+            _dbContext.Games.Update(game);
 
-                await _dbContext.SaveChangesAsync();
-                return true;
-            }
-         
+            await _dbContext.SaveChangesAsync();
+            return gameDto;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<GameDto> DeleteAsync(int id)
         {
             var game = await _dbContext.Games.FirstOrDefaultAsync(g => g.GameId == id);
-            if (game is null) return false;
 
             _dbContext.Games.Remove(game);
             await _dbContext.SaveChangesAsync();
-            return true;
+            return _mapper.Map<GameDto>(game);
         }
 
         public async Task<GameDto> GetByIDAsync(int id)
@@ -128,12 +119,12 @@ namespace BoardGame_REST_API.Services
             return gameDtos;
         }
 
-        public async Task<bool> CreateAsync(GameDto gameDto)
+        public async Task<GameDto> CreateAsync(GameDto gameDto)
         {
             var game = _mapper.Map<Game>(gameDto);
             await _dbContext.Games.AddAsync(game);
             await _dbContext.SaveChangesAsync();
-            return true;
+            return gameDto;
         }
     }
 }

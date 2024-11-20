@@ -18,15 +18,10 @@ namespace BoardGame_REST_API.Services
                 _mapper = mapper;
             }
 
-            public async Task<bool> UpdateAsync(int id, CategoryDto CategoryDto)
+            public async Task<CategoryDto> UpdateAsync(int id, CategoryDto CategoryDto)
             {
                 var Category = await _dbContext.Categories.AsNoTracking().FirstOrDefaultAsync(g => g.CategoryId == id);
-                if (Category is null)
-                {
-                    return false;
-                }
-                else
-                {
+
                     var gm = _mapper.Map<Category>(CategoryDto);
 
                     Category = gm;
@@ -34,19 +29,17 @@ namespace BoardGame_REST_API.Services
                     _dbContext.Categories.Update(Category);
 
                     await _dbContext.SaveChangesAsync();
-                    return true;
-                }
+                    return CategoryDto;
 
             }
 
-            public async Task<bool> DeleteAsync(int id)
+            public async Task<CategoryDto> DeleteAsync(int id)
             {
                 var Category = await _dbContext.Categories.FirstOrDefaultAsync(g => g.CategoryId == id);
-                if (Category is null) return false;
 
                 _dbContext.Categories.Remove(Category);
                 await _dbContext.SaveChangesAsync();
-                return true;
+                return _mapper.Map<CategoryDto>(Category);
             }
 
             public async Task<CategoryDto> GetByIDAsync(int id)
@@ -103,12 +96,12 @@ namespace BoardGame_REST_API.Services
                 return CategoryDtos;
             }
 
-            public async Task<bool> CreateAsync(CategoryDto CategoryDto)
+            public async Task<CategoryDto> CreateAsync(CategoryDto CategoryDto)
             {
                 var Category = _mapper.Map<Category>(CategoryDto);
                 await _dbContext.Categories.AddAsync(Category);
                 await _dbContext.SaveChangesAsync();
-                return true;
+                return CategoryDto;
             }
         }
 }

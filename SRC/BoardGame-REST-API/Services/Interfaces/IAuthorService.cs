@@ -4,10 +4,10 @@ namespace BoardGame_REST_API.Services.Interfaces
 {
     public interface IAuthorService
     {
-        Task<bool> UpdateAsync(int id, AuthorDto AuthorDto);
-        Task<bool> DeleteAsync(int id);
+        Task<AuthorDto> UpdateAsync(int id, AuthorDto AuthorDto);
+        Task<AuthorDto> DeleteAsync(int id);
         Task<AuthorDto> GetByIDAsync(int id);
         Task<IEnumerable<AuthorDto>> GetAllAsync();
-        Task<bool> CreateAsync(AuthorDto AuthorDto);
+        Task<AuthorDto> CreateAsync(AuthorDto AuthorDto);
     }
 }

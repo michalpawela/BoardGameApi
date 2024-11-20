@@ -23,28 +23,41 @@ namespace BoardGame_REST_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var isUpdated = await _authorService.UpdateAsync(id, authorDto);
-
-            if (!isUpdated)
+            try
             {
-                return NotFound();
-            }
+                var isUpdated = await _authorService.UpdateAsync(id, authorDto);
 
-            return Ok();
+                if (isUpdated == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAsync([FromRoute] int id)
         {
-            var isDeleted = await _authorService.DeleteAsync(id);
-
-            if (isDeleted)
+            try
             {
-                return NoContent();
-            }
+                var isDeleted = await _authorService.DeleteAsync(id);
 
-            return NotFound();
+                if (isDeleted == null)
+                {
+                    return NoContent();
+                }
+
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost]
@@ -54,16 +67,16 @@ namespace BoardGame_REST_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            bool isCreated = await _authorService.CreateAsync(authorDto);
-
-            if (isCreated)
+            try
             {
+                var isCreated = await _authorService.CreateAsync(authorDto);
+
                 return StatusCode(201);
+
             }
-            else
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
         }
 
