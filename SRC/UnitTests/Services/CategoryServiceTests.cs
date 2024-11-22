@@ -5,6 +5,9 @@ using BoardGame_REST_API.Services.Interfaces;
 using BoardGame_REST_API.Services.Seeders;
 using BoardGame_REST_API.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace UnitTests.Services
 {
@@ -12,7 +15,7 @@ namespace UnitTests.Services
     {
         private readonly BoardGameDbContext _context;
         private readonly ICategoryService _categoryService;
-        private readonly IMapper mapper;
+        private readonly IMapper _mapper;
         private readonly GameSeeder _gameSeeder;
         private readonly string _databaseName;
 
@@ -34,8 +37,16 @@ namespace UnitTests.Services
 
             _gameSeeder.Seed();
 
+            // Setup dependency injection container to match the main project
+            var serviceProvider = new ServiceCollection()
+                .AddAutoMapper(typeof(Program).Assembly) // Ensure it scans the same assembly as in your main project
+                .BuildServiceProvider();
+
+            // Retrieve the mapper instance from the service provider
+            _mapper = serviceProvider.GetRequiredService<IMapper>();
+
             // Initialize the repository with the context
-            _categoryService = new CategoryService(_context, mapper);
+            _categoryService = new CategoryService(_context, _mapper);
         }
 
         public void Dispose()
@@ -77,6 +88,27 @@ namespace UnitTests.Services
             Assert.Equal(1, category.CategoryId);
             Assert.Single(category.Games);
             Assert.Equal("The Lord of the Ice Garden", category.Games.First().Name);
+        }
+
+        [Fact]
+        public async Task CreateAsync()
+        {
+            var categoryDto = new CategoryDto
+            {
+                CategoryId = 999,
+                Description = "Test",
+                Name = "Category for testing"
+            };
+
+            var result = await _categoryService.CreateAsync(categoryDto);
+
+            Assert.NotNull(result);
+
+            Assert.Equal(categoryDto.CategoryId, result.CategoryId);
+            Assert.Equal(categoryDto.Description, result.Description);
+            Assert.Equal(categoryDto.Name, result.Name);
+
+
         }
     }
 }
