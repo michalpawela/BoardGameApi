@@ -1,10 +1,5 @@
-﻿using BoardGame_REST_API.DbManagement;
-using BoardGame_REST_API.DbManagement.Entities;
-using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using BoardGame_REST_API.Dtos;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Common.Dtos;
 using BoardGame_REST_API.Services.Interfaces;
 
 namespace BoardGame_REST_API.Controllers

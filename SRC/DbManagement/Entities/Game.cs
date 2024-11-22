@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BoardGame_REST_API.DbManagement.Entities
+namespace DbManagement.Entities
 {
     public class Game
     {

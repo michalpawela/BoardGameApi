@@ -1,4 +1,4 @@
-﻿namespace BoardGame_REST_API.Dtos
+﻿namespace Common.Dtos
 {
     public class CategoryGameDto
     {

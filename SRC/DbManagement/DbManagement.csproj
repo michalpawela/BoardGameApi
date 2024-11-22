@@ -5,16 +5,11 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Migrations\20241102181220_Init.Designer.cs">
-      <DependentUpon>20241102181220_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Migrations\20241102181845_RemoveDuplicateTables.Designer.cs">
-      <DependentUpon>20241102181845_RemoveDuplicateTables.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

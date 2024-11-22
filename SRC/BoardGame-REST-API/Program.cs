@@ -1,5 +1,5 @@
 using BoardGame_REST_API;
-using BoardGame_REST_API.DbManagement;
+using DbManagement;
 using BoardGame_REST_API.Services;
 using BoardGame_REST_API.Services.Interfaces;
 using BoardGame_REST_API.Services.Seeders;

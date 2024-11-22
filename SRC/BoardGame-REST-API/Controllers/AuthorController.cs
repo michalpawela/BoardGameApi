@@ -1,4 +1,4 @@
-﻿using BoardGame_REST_API.Dtos;
+﻿using Common.Dtos;
 using BoardGame_REST_API.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

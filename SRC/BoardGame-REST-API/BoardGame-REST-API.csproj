@@ -8,19 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Dtos\NewFolder\**" />
     <Compile Remove="NewFolder\**" />
-    <Content Remove="Dtos\NewFolder\**" />
     <Content Remove="NewFolder\**" />
-    <EmbeddedResource Remove="Dtos\NewFolder\**" />
     <EmbeddedResource Remove="NewFolder\**" />
-    <None Remove="Dtos\NewFolder\**" />
     <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -29,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\DbManagement.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DbManagement\DbManagement.csproj" />
   </ItemGroup>
 

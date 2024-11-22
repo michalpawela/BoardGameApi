@@ -1,8 +1,4 @@
-﻿using BoardGame_REST_API.DbManagement;
-using BoardGame_REST_API.Dtos;
-using System.ComponentModel.DataAnnotations;
-
-namespace BoardGame_REST_API.Dtos
+﻿namespace Common.Dtos
 {
     public class GameDto
     {

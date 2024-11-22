@@ -1,8 +1,8 @@
-﻿using BoardGame_REST_API.DbManagement.Entities;
+﻿using DbManagement.Entities;
 using DbManagement;
 using Microsoft.EntityFrameworkCore;
 
-namespace BoardGame_REST_API.DbManagement
+namespace DbManagement
 {
     public class BoardGameDbContext : DbContext
     {

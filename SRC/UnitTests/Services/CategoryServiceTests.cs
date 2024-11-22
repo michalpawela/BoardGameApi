@@ -1,9 +1,9 @@
 using AutoMapper;
-using BoardGame_REST_API.DbManagement;
+using DbManagement;
 using BoardGame_REST_API.Services;
 using BoardGame_REST_API.Services.Interfaces;
 using BoardGame_REST_API.Services.Seeders;
-using BoardGame_REST_API.Dtos;
+using Common.Dtos;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,6 +1,5 @@
-﻿using BoardGame_REST_API.DbManagement.Entities;
-
-namespace BoardGame_REST_API.Dtos
+﻿
+namespace Common.Dtos
 {
     public class CategoryDto
     {

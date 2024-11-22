@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BoardGame_REST_API.Dtos;
-using BoardGame_REST_API.DbManagement.Entities;
+using Common.Dtos;
+using DbManagement.Entities;
 
-namespace BoardGame_REST_API
+namespace Common
 {
     public class BoardGameApiMappingProfile : Profile
     {

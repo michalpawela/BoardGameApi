@@ -1,5 +1,5 @@
-﻿using BoardGame_REST_API.DbManagement.Entities;
-using BoardGame_REST_API.DbManagement;
+﻿using DbManagement.Entities;
+using DbManagement;
 using System.Collections.Generic;
 using System.Linq;
 

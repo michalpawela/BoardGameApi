@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BoardGame_REST_API.Dtos;
-using BoardGame_REST_API.DbManagement;
-using BoardGame_REST_API.DbManagement.Entities;
+using Common.Dtos;
+using DbManagement;
+using DbManagement.Entities;
 using BoardGame_REST_API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

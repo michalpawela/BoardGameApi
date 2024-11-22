@@ -1,4 +1,4 @@
-﻿using BoardGame_REST_API.Dtos;
+﻿using Common.Dtos;
 
 namespace BoardGame_REST_API.Services.Interfaces
 {
